@@ -9,7 +9,7 @@
    - 点击HACS侧边栏中的"集成"
    - 点击右上角的三个点
    - 选择"自定义存储库"
-   - 输入仓库URL
+   - 输入仓库URL：https://github.com/wongshandev/zendure-hacs
    - 类别选择"集成"
 3. 点击"下载"
 4. 重启Home Assistant
