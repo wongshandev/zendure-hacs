@@ -1,0 +1,10 @@
+{
+  "domain": "zendure",
+  "name": "Zendure",
+  "documentation": "https://github.com/Zendure/developer-device-data-report",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["requests"],
+  "iot_class": "cloud_polling",
+  "version": "1.0.0"
+}
