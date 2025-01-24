@@ -1,3 +1,5 @@
+![Zendure Logo](public/zendure-logo.png)
+
 # Zendure Integration for Home Assistant
 
 ## 安装方法
