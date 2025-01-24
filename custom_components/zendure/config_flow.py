@@ -1,4 +1,4 @@
-"""Config flow for My Integration integration."""
+"""Config flow for Zendure integration."""
 from __future__ import annotations
 
 from typing import Any
@@ -11,7 +11,7 @@ import voluptuous as vol
 from .const import DOMAIN
 
 class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for My Integration."""
+    """Handle a config flow for Zendure Integration."""
 
     VERSION = 1
 
@@ -20,15 +20,30 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
         user_input: dict[str, Any] | None = None
     ) -> FlowResult:
         """Handle the initial step."""
-        if user_input is None:
-            return self.async_show_form(
-                step_id="user",
-                data_schema=vol.Schema({
-                    vol.Required("name"): str,
-                })
+        errors = {}
+
+        if user_input is not None:
+            return self.async_create_entry(
+                title=user_input["name"],
+                data={
+                    "name": user_input["name"],
+                    "device_id": user_input["device_id"],
+                    "mqtt_host": user_input["mqtt_host"],
+                    "mqtt_port": user_input["mqtt_port"],
+                    "mqtt_username": user_input["mqtt_username"],
+                    "mqtt_password": user_input["mqtt_password"]
+                }
             )
 
-        return self.async_create_entry(
-            title=user_input["name"],
-            data=user_input
+        return self.async_show_form(
+            step_id="user",
+            data_schema=vol.Schema({
+                vol.Required("name"): str,
+                vol.Required("device_id"): str,
+                vol.Required("mqtt_host"): str,
+                vol.Required("mqtt_port", default=1883): int,
+                vol.Required("mqtt_username"): str,
+                vol.Required("mqtt_password"): str
+            }),
+            errors=errors
         )
