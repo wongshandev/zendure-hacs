@@ -8,6 +8,10 @@ _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS = [Platform.SENSOR]
 
+async def async_setup(hass: HomeAssistant, config: dict) -> bool:
+    """Set up the Zendure component."""
+    return True
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     """Set up My Integration from a config entry."""
     hass.data.setdefault(entry.domain, {})

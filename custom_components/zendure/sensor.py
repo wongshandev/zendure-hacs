@@ -96,6 +96,7 @@ class ZendureSensor(SensorEntity):
         def message_received(msg: Any) -> None:
             """Handle new MQTT messages."""
             try:
+                import pdb; pdb.set_trace()  # 添加断点
                 data = json.loads(msg.payload)
                 if self.entity_description.key == SENSOR_BATTERY_LEVEL:
                     self._attr_native_value = data.get('battery_level')
