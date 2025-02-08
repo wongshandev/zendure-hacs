@@ -1,4 +1,4 @@
-"""The My Integration integration."""
+"""The Zendure integration."""
 import logging
 from homeassistant.core import HomeAssistant
 from homeassistant.config_entries import ConfigEntry
@@ -13,7 +13,7 @@ async def async_setup(hass: HomeAssistant, config: dict) -> bool:
     return True
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
-    """Set up My Integration from a config entry."""
+    """Set up Zendure from a config entry."""
     hass.data.setdefault(entry.domain, {})
     hass.data[entry.domain][entry.entry_id] = {}
 
